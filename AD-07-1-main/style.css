@@ -1,20 +1,64 @@
+/* Reset global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
     width: 100%;
 }
 
+/* Fuente, fondo y color de fuente (Sticky Footer) */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #b9bd8a;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Le dice al body que mida al menos el 100% de la pantalla */
+}
+
+
+main {
+    flex: 1; 
+    padding: 20px; 
+    max-width: 1200px; /* Evita que la página se estire infinitamente en pantallas gigantes */
+    margin: 0 auto; /* Centra el contenido en pantallas grandes */
+    width: 100%;
+}
+
+/* Formato de los titulos */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px;
+}
+
+/* Parrafos */
+p {
+    margin-bottom: 10px;
+}
+
+/* Imagenes se escalan de manera responsiva */
+img {
+    max-width: 100%;
+    max-height: 50vh;
+    height: auto;
+}
+
 /* =========================
    NAVBAR - Gigi (Task 3)
 ========================= */
-
-.menu-principal{
+.menu-principal {
     position: sticky;
     top: 0;
     background-color: #333;
     padding: 15px;
+    z-index: 1000; /* Asegura que el menú siempre esté por encima de las imágenes */
 }
 
-.menu-principal ul{
+.menu-principal ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -23,321 +67,62 @@ html {
     padding: 0;
 }
 
-.menu-principal a{
+.menu-principal a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-.menu-principal a:hover{
+.menu-principal a:hover {
     color: #f2c94c;
-
-  height: 100%;
-  width: 100%;
 }
 
-/* Reset global */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* =========================
+   ESTILOS DEL HOME - Gus (Tarea 5)
+========================= */
+.seccion-ropa {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 30px;
+    padding: 30px;
+    background-color: #eef2eb; /* Color de fondo suave */
+    border-radius: 12px;
 }
 
-/* Fuente, fondo y color de fuente */
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background-color:#b9bd8a;
-  color:#333;
-  line-height:1.6;
+.seccion-ropa .texto {
+    flex: 1; 
+    text-align: left;
 }
 
-/* Formato de los titulos */
-h1, h2, h3, h4, h5, h6{
-  margin-bottom:15px;
+.seccion-ropa img {
+    flex: 1; 
+    max-width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
 }
 
-/* Parrafos */
-p{
-  margin-bottom:10px;
+/* =========================
+   ESTILOS DE CONTACTO (Tarea 7)
+========================= */
+.pagina-contacto {
+    text-align: center; /* Centra todos los textos automáticamente */
+    padding: 40px 20px;
 }
 
-/* Imagenes se escalan a la mitad del alto de la pantalla de manera respnosiva */
-img{
-  max-width:100%;
-  max-height:50vh;
-  height:auto;
+.pagina-contacto img {
+    margin: 0 auto; 
+    display: block;
+    max-width: 500px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- ESTILOS DE CONTACTO --- */
-
-/* Texto "Escribenos" */
-#correo-contact{
+/* Texto "Escríbenos" */
+#correo-contact {
     font-weight: bold;
     color: #2c3e50;
 }
+
 #label-comentario {
     font-weight: bold;
     color: #2c3e50;
@@ -355,7 +140,7 @@ img{
     max-width: 450px;     
 }
 
-/* Botón de Enviar  */
+/* Botón de Enviar */
 #boton-enviar-contact {
     background-color: #555c1e;
     color: white;
@@ -377,6 +162,35 @@ img{
     margin-left: 10px; 
 }
 
-/* Efecto al pasar el mouse */
+/* Efecto al pasar el mouse en botones */
 #boton-enviar-contact:hover { background-color: #3e4416; }
 #boton-borrar-contact:hover { background-color: #f8d7da; }
+
+/* =========================
+   ESTILOS DEL FOOTER (Tarea 4)
+========================= */
+#footerProyect {
+    background-color: #333; 
+    color: #f8f9fa; 
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 40px; 
+}
+
+#footerProyect ul {
+    list-style: none; 
+    padding: 0;
+    margin: 15px 0 25px 0;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 15px; 
+}
+
+#footerProyect ul li {
+    background-color: #555c1e; 
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
